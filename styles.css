@@ -1,4 +1,95 @@
-textarea{
-    height: 70vh;
-    width: 30vw;
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header{
+    background-color: #F5E9E2;
+    color: #982649;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+}
+
+header h1{
+    color: #982649;
+    margin: 0;
+    align-self: center;
+}
+
+main{
+    height: 60vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0;
+}
+
+main textarea{
+    height: 50vh;
+    flex-basis: 30vw;
+    background-color: #F5E9E2;
+    border: 1px solid #982649;
+}
+
+main .optionsContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+main label{
+    display: block;
+    font-size: 18px;
+    margin: 20px 0;
+    color: grey;
+}
+
+main input{
+    display: block;
+    width: 50px;
+    font-size: 20px;
+    margin: 10px 0;
+    background-color: #F5E9E2;
+    padding: 10px 0 10px 10px;
+    border: 1px solid #982649;
+}
+
+main button{
+    font-size: 18px;
+    padding: 10px;
+    margin-right: 20px;
+    background: #982649;
+    border: none;
+    color: white;
+}
+
+section{
+    margin: 50px;
+}
+
+section h2{
+    color: #982649;
+}
+
+.codeContainer p{
+    color: grey;
+    font-size: 14px;
+}
+
+footer{
+    height: 15vh;
+    background-color: #982649;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+footer p{
+    margin: 0;
+}
+
+footer a{
+    color: white;
+    font-weight: bold;
 }

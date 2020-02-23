@@ -8,11 +8,63 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <input type="number" id="columns" value="2">
-    <input type="number" id="rows" value="6">
-    <textarea id="textarea"></textarea>
-    <button type="button" onclick="convert()">Convert</button>
-    <p id="result"></p>
-    <p id="HTMLcode"></p>
+    <header>
+        <h1>HTML Table Generator</h1>
+    </header>    
+    <main>
+        <!--TABLE GENERATOR INPUT-->
+        <textarea id="textarea" placeholder="Copy the Word file table contents here without including the 'Specifications' first row."></textarea>
+        <div class="optionsContainer">
+            <div class="numberInputsContainer">
+                <label for="rows">Rows (not including "Specifications"): 
+                    <input type="number" name="rows" id="rows" value="6">
+                </label>
+                <label for="columns">Columns: 
+                    <input type="number" name="columns" id="columns" value="2">
+                </label> 
+            </div>
+            <div class="buttonsContainer">
+                <button type="button" onclick="convert()">Convert</button>
+                <button type="button" onclick="inputCleaner('textarea')">Clear</button>  
+            </div>  
+        </div>
+    </main>
+    <!--STANDARD TABLE-->
+    <section>
+        <div>
+            <div id="standardTablePreviewTitle"></div>
+            <div id="result"></div>
+        </div>
+       <div class="codeContainer">
+           <div id="standardTableCodeTitle"></div>
+           <p id="HTMLcode"></p>
+       </div>
+    </section>
+    <!--ALTERNATIVE TABLE-->
+    <section>
+        <div>
+            <div id="alternativeTablePreviewTitle"></div>
+            <div id="alternativeResult"></div>
+        </div>
+       <div class="codeContainer">
+            <div id="alternativeTableCodeTitle"></div>
+            <p id="alternativeHTMLcode"></p>
+       </div>
+    </section>
+    <!--FIRST ROW GREY TABLE-->
+    <section>
+        <div>
+            <div id="firstRowGreyPreviewTitle"></div>
+            <div id="firstRowGreyResult"></div>
+        </div>
+        <div class="codeContainer">
+            <div id="firstRowGreyCodeTitle"></div>
+            <p id="firstRowGreyHTMLcode"></p>
+        </div>
+    </section>
+    <!--FOOTER-->
+    <footer>
+        <p>If you want to report errors or suggest additions, contact malena.lucero@gtb.com</p>
+    </footer>
 </body>
 </html>
