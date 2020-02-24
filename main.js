@@ -40,11 +40,11 @@ const getElements = inputValue =>{
     const toHTML = document.createElement('div')
     toHTML.innerText = inputValue
     const HTMLstring = toHTML.innerHTML
-    return HTMLstring.split("<br><br>")
+    let arrayOfElements = HTMLstring.split("<br><br>")
                         .map(e=> e = e.includes('<br>') ? e.replace('<br>', '') : e)
                         .map(e=> e.trim())
-                        .slice(0,-1)
-
+    if(arrayOfElements[arrayOfElements.length - 1] === '') arrayOfElements.pop()
+    return arrayOfElements
 }
 
 const createTable = () =>{
