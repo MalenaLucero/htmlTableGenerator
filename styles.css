@@ -17,6 +17,23 @@ header h1{
     align-self: center;
 }
 
+aside{
+    color: red;
+    text-align: center;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+aside h4{
+    font-size: 20px;
+    margin: 0;
+}
+
+aside p{
+    font-size: 16px;
+    margin: 0;
+}
+
 main{
     height: 60vh;
     display: flex;
@@ -92,4 +109,12 @@ footer p{
 footer a{
     color: white;
     font-weight: bold;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
 }

@@ -9,12 +9,16 @@ const convert = () =>{
     if(input !== ''){
         dataCleaner()
         elements = getElements(input)
+        if(checkError()) showErrorMessage()
         createTable()
         createAlternativeTable()
         createFirstRowGreyTable()
     }
     console.log(elements)
 }
+
+const checkError = () =>
+    error = elements.length === rows * columns ? false : true
 
 const dataCleaner = () =>{
     innerHTMLCleaner('result')
@@ -29,6 +33,7 @@ const dataCleaner = () =>{
     innerHTMLCleaner('alternativeTableCodeTitle')
     innerHTMLCleaner('firstRowGreyPreviewTitle')
     innerHTMLCleaner('firstRowGreyCodeTitle')
+    hideErrorMessage()
 }
 
 const getElements = (inputValue) =>{
@@ -50,7 +55,7 @@ const getElements = (inputValue) =>{
 }
 
 const createTable = () =>{
-    printTitle('h2', 'Preview: Standard table (with fixed width and margin-left)', 'standardTablePreviewTitle')
+    printTitle('h2', 'Preview: Standard table (fixed internal width and margin-left)', 'standardTablePreviewTitle')
     let index = 0
     const table = document.createElement('table')
     table.cellSpacing = "0"
@@ -89,13 +94,13 @@ const createTable = () =>{
     table.appendChild(tbody)
     const p = document.getElementById('result')
     p.appendChild(table)
-    printTitle('h3', 'Standard table HTML code', 'standardTableCodeTitle')
+    printTitle('h3', 'Standard table HTML code:', 'standardTableCodeTitle')
     const codeContainer = document.getElementById('HTMLcode')
     codeContainer.innerText = p.innerHTML
 }
 
 const createAlternativeTable = () =>{
-    printTitle('h2', 'Preview: Alternative table (with dynamic internal width and without margin-left)', 'alternativeTablePreviewTitle')
+    printTitle('h2', 'Preview: Alternative table (dynamic internal width and no margin-left)', 'alternativeTablePreviewTitle')
     let index = 0
     const table = document.createElement('table')
     table.width = '550px'
@@ -133,7 +138,7 @@ const createAlternativeTable = () =>{
     table.appendChild(tbody)
     const p = document.getElementById('alternativeResult')
     p.appendChild(table)
-    printTitle('h3', 'Alternative table HTML code', 'alternativeTableCodeTitle')
+    printTitle('h3', 'Alternative table HTML code:', 'alternativeTableCodeTitle')
     const codeContainer = document.getElementById('alternativeHTMLcode')
     codeContainer.innerText = p.innerHTML
 }
@@ -178,7 +183,7 @@ const createFirstRowGreyTable = () =>{
     table.appendChild(tbody)
     const p = document.getElementById('firstRowGreyResult')
     p.appendChild(table)
-    printTitle('h3', 'Alternative table with first row grey HTML code', 'firstRowGreyCodeTitle')
+    printTitle('h3', 'Alternative table with first row grey HTML code:', 'firstRowGreyCodeTitle')
     const codeContainer = document.getElementById('firstRowGreyHTMLcode')
     codeContainer.innerText = p.innerHTML
 }
@@ -198,4 +203,14 @@ const innerHTMLCleaner = elementId =>{
 const inputCleaner = inputId =>{
     const input = document.getElementById(inputId)
     input.value = ''
+}
+
+const showErrorMessage = () =>{
+    const errorMessage = document.getElementById('errorMessage')
+    errorMessage.classList.replace('hide', 'show')
+}
+
+const hideErrorMessage = () =>{
+    const errorMessage = document.getElementById('errorMessage')
+    errorMessage.classList.replace('show', 'hide')
 }
