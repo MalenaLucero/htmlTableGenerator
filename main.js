@@ -36,21 +36,14 @@ const dataCleaner = () =>{
     hideErrorMessage()
 }
 
-const getElements = (inputValue) =>{
+const getElements = inputValue =>{
     const toHTML = document.createElement('div')
     toHTML.innerText = inputValue
     const HTMLstring = toHTML.innerHTML
-    let arrayOfElements = HTMLstring.split("<br><br>")
-                        .map(e=>{
-                            if(e.includes('<br>')){
-                                return e.replace('<br>', '')
-                            }else{
-                                return e
-                            }
-                        })
-                        .map(e=>e.trim())
-    arrayOfElements.pop()
-    return arrayOfElements
+    return HTMLstring.split("<br><br>")
+                        .map(e=> e = e.includes('<br>') ? e.replace('<br>', '') : e)
+                        .map(e=> e.trim())
+                        .slice(0,-1)
 
 }
 
