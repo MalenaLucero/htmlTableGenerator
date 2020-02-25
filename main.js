@@ -41,7 +41,7 @@ const getElements = inputValue =>{
 const createTable = tableObject =>{
     const {type, description} = tableObject
     dataCleaner(type)
-    printTitle('h2', description, `${type}TablePreviewTitle`)
+    printTitle('h2', `Preview: ${description}`, `${type}TablePreviewTitle`)
     const table = createTableElement()
     const tbody = document.createElement('tbody')
     tbody.appendChild(createTableHeader(type))
